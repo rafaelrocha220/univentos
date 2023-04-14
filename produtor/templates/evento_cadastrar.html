@@ -1,0 +1,181 @@
+{% extends 'includes/skeleton.html' %}
+{% load static %}
+
+{% block 'content' %}
+<section class="px-10 py-5">
+
+   <!-- header -->
+   <div class="flex flex-row justify-between">
+      <a href="{% url 'home' %}" class="text-4xl font-semibold text-neutral-500">Unieventos</a>
+      <div class="flex flex-row gap-5 items-center">
+         <div class="text-2xl"><i class="fa-regular fa-bell"></i></div>
+         <div class="flex flex-row gap-2 items-center">
+            <div class="text-3xl"><i class="fa-solid fa-circle-user"></i></div>
+            <div class="text-lg font-normal">Username</div>
+         </div>
+      </div>
+   </div>
+
+   <div class="flex flex-col w-full gap-5 mt-10 px-10">
+      <div class="flex flex-col mb-5">
+         <p class="font-medium text-2xl"><i class="fa-solid fa-ticket"></i> Vamos começar!</p>
+         <span class="text-neutral-500 text-lg">Coloque os dados do evento nos campo abaixo.</span>
+      </div>
+
+      <div class="flex flex-row w-full border-b-2 pb-1 text-neutral-500">
+         <p class="font-medium text-lg">1. Cadastro informações do evento</p>
+      </div>
+
+      <!-- Main info section -->
+      <div class="flex flex-row gap-5 w-full">
+         <!-- Nome do evento -->
+         <div class="mb-4 w-1/2">
+            <label class="block text-gray-700 font-medium mb-1" for="nome_evento">
+               Nome do evento:
+            </label>
+            <input
+               class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+               id="nome_evento" type="text" name="nome_evento" placeholder="Digite o nome do evento">
+         </div>
+
+         <!-- Tipo do evento -->
+         <div class="mb-4 w-1/2">
+            <label class="block text-gray-700 font-medium mb-1" for="tipo_evento">
+               Digite o tipo de evento:
+            </label>
+            <input
+               class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+               id="tipo_evento" type="text" name="tipo_evento" placeholder="Qual o tipo de evento">
+         </div>
+      </div>
+      <!-- End info section -->
+
+      <!-- Section time and hour -->
+      <div class="flex flex-row gap-5">
+         <div class="mb-4 w-1/2">
+            <label class="block text-gray-700 font-medium mb-2" for="date">
+               Data inicio
+            </label>
+            <input
+               class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+               type="date" name="date" id="date">
+         </div>
+
+         <div class="mb-4 w-1/2">
+            <label class="block text-gray-700 font-medium mb-2" for="time_init">
+               Hora inicio do evento
+            </label>
+            <input
+               class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+               type="time" name="time_init" id="time_init">
+         </div>
+
+
+         <div class="mb-4 w-1/2">
+            <label class="block text-gray-700 font-medium mb-2" for="time_end">
+               Hora término do evento
+            </label>
+            <input
+               class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+               type="time" name="time_end" id="time_end">
+         </div>
+
+      </div>
+      <!-- Section time and hour -->
+
+      <!-- Address info section -->
+      <div class="flex flex-row gap-5 w-full">
+         <!-- Tipo do evento -->
+         <div class="mb-4 w-2/4">
+            <label class="block text-gray-700 font-medium mb-1" for="username">
+               Endereço:
+            </label>
+            <input
+               class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+               id="username" type="text" name="username" placeholder="Digite o endereço">
+         </div>
+
+         <!-- Estado -->
+         <div class="mb-4 w-1/4">
+            <label class="block text-gray-700 font-medium mb-1" for="estado">
+               Estado:
+            </label>
+            <input
+               class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+               id="estado" type="text" name="estado" placeholder="Digite estado">
+         </div>
+
+         <!-- Tipo do evento -->
+         <div class="mb-4 w-1/4">
+            <label class="block text-gray-700 font-medium mb-1" for="username">
+               Cidade:
+            </label>
+            <input
+               class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+               id="username" type="text" name="username" placeholder="Digite a cidade">
+         </div>
+
+      </div>
+      <!-- End address section -->
+
+
+      <div class="flex flex-row w-full border-b-2 pb-1 text-neutral-500">
+         <p class="font-medium text-lg">2. Cadastro do ingresso</p>
+      </div>
+
+      <div class="flex flex-row gap-5">
+         <!-- Nome do evento -->
+         <div class="mb-4 w-1/2">
+            <label class="block text-gray-700 font-medium mb-1" for="username">
+               Quantidade de ingressos:
+            </label>
+            <input
+               class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+               id="username" type="text" name="username" placeholder="Qtd de ingressos">
+         </div>
+
+         <!-- Nome do evento -->
+         <div class="mb-4 w-1/2">
+            <label class="block text-gray-700 font-medium mb-1" for="username">
+               Valor do ingresso:
+            </label>
+            <input
+               class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+               id="username" type="text" name="username" placeholder="Valor dos ingressos">
+         </div>
+
+         <!-- Nome do evento -->
+         <div class="mb-4 w-1/2">
+            <label class="block text-gray-700 font-medium mb-1" for="username">
+               Deseja incluir taxa Unieventos?
+            </label>
+            <input
+               class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+               id="username" type="text" name="username" placeholder="S/N">
+         </div>
+      </div>
+
+      <div class="flex flex-row w-full border-b-2 pb-1 text-neutral-500">
+         <p class="font-medium text-lg">3. Insira o banner do evento abaixo</p>
+      </div>
+
+      <div class="w-full bg-neutral-200 items-center h-52 flex flex-row text-center justify-center">
+         <i class="fa-solid fa-images text-8xl text-neutral-400"></i>
+      </div>
+
+   </div>
+
+   <!-- Button section -->
+   <div class="flex items-center my-10 mx-10 justify-end">
+      <a href="{% url 'evento_cadastrar' %}"
+         class="bg-blue-900 text-white font-medium py-5 px-10 rounded focus:outline-none focus:shadow-outline"
+         type="submit">
+         Registrar evento
+      </a>
+   </div>
+</section>
+
+<footer class="bg-neutral-800 text-center text-white px-10 py-5">© 2023 UniEventos. Todos os direitos reservados.
+   Desenvolvido com
+   Django pelos integrantes de Unimetrocamp Wyden.</footer>
+{% endblock %}

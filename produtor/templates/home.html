@@ -4,14 +4,15 @@
 {% block 'content' %}
 <div class="w-screen h-screen bg-blue-950">
    <img class="w-full h-full" src="{% static 'background.png' %}" alt="Hi!" />
-   <div class="absolute text-4xl font-semibold p-5 top-0 text-white">Unieventos</div>
+   <a href="{% url 'home' %}" class="absolute text-4xl font-semibold px-10 py-5 top-0 text-white">Unieventos</a>
    <div class="absolute text-4xl flex flex-col gap-8 font-semibold p-5 top-1/4 w-full text-white">
       <p class="text-center text-8xl">Crie agora o seu <br>evento!</p>
       <p class="text-center text-3xl font-normal">Junte-se à nós para criar diferentes jeitos de viver, com soluções<br>
          completas para
          a publicação, gestão, venda e entrega das suas <br>produções.</p>
-      <button class="py-5 px-10 text-center bg-blue-900 text-white w-fit mx-auto rounded-full text-2xl">Crie seu
-         evento</button>
+      <a href="{% url 'login' %}"
+         class="py-5 px-10 text-center bg-blue-900 text-white w-fit mx-auto rounded-full text-2xl">Crie seu
+         evento</a>
    </div>
 </div>
 {% endblock %}

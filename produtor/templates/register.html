@@ -1,0 +1,63 @@
+{% extends 'includes/skeleton.html' %}
+{% load static %}
+
+{% block 'content' %}
+<div class="w-screen h-screen bg-blue-950">
+   <img class="w-full h-full" src="{% static 'background2.png' %}" alt="Hi!" />
+   <a href="{% url 'home' %}" class="absolute text-4xl font-semibold px-10 py-5 top-0 text-white">Unieventos</a>
+   <section class="absolute flex flex-row justify-center gap-8 p-5 top-1/4 w-full">
+      <!-- Login form -->
+      <div class="bg-neutral-50 py-5 px-10 w-2/6 text-lg rounded border border-neutral-300">
+         <div class="text-center w-full text-4xl mb-5 font-medium flex flex-row justify-between items-center">
+            <div class="flex flex-col text-left">
+               <span class=" uppercase">cadastro</span>
+               <span class="text-neutral-400 text-base">Faça seu cadastro abaixo.</span>
+            </div>
+            <i class="fa-solid fa-user-plus"></i>
+         </div>
+
+         <!-- Input nome de usuario-->
+         <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-1" for="username">
+               Nome de usuário:
+            </label>
+            <input
+               class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+               id="username" type="text" name="username" placeholder="Digite seu nome de usuário">
+         </div>
+
+         <!-- Input nome de usuario-->
+         <div class="mb-4">
+            <label class="block text-gray-700 font-medium mb-1" for="username">
+               Email:
+            </label>
+            <input
+               class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+               id="username" type="text" name="username" placeholder="Digite seu nome de usuário">
+         </div>
+
+         <!-- Input senha -->
+         <div class="mb-6">
+            <label class="block text-gray-700 font-medium mb-1" for="password">
+               Senha:
+            </label>
+            <input
+               class="shadow-sm appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+               id="password" type="password" name="password" placeholder="Digite sua senha">
+         </div>
+
+         <!-- Button section -->
+         <div class="flex items-center justify-between">
+            <a href="{% url 'login' %}" class="underline font-normal">Já tenho uma conta.</a>
+            <a href="{% url 'evento_cadastrar' %}"
+               class="bg-blue-900 text-white font-medium py-2 px-10 rounded focus:outline-none focus:shadow-outline"
+               type="submit">
+               Registrar
+            </a>
+         </div>
+
+      </div>
+      <!-- End login section-->
+   </section>
+</div>
+{% endblock %}

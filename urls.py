@@ -19,5 +19,12 @@ import produtor.views as produtor_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', produtor_views.home)
+    
+    # Produtor
+    path('', produtor_views.home, name='home'),
+    path('login/', produtor_views.login, name='login'),
+    path('register/', produtor_views.register, name='register'),
+
+    # Evento cadastro
+    path('evento/', produtor_views.eventos_cadastrar, name='evento_cadastrar'),
 ]
