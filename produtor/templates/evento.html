@@ -1,0 +1,44 @@
+{% extends 'includes/skeleton.html' %}
+{% load static %}
+
+{% block 'content' %}
+<section class="px-10 py-5">
+   {{teste}}
+   <!-- header -->
+   <div class="flex flex-row justify-between px-10">
+      <a href="{% url 'home' %}" class="text-4xl font-semibold text-neutral-500">Unieventos</a>
+      <div class="flex flex-row gap-5 items-center">
+         <a href="{% url 'eventos' %}" class="text-lg">Meus eventos</a>
+         <a href="{% url 'evento_cadastrar' %}" class="text-lg">Cadastrar evento</a>
+         <div class="flex flex-row gap-2 items-center">
+            <div class="text-3xl"><i class="fa-solid fa-circle-user"></i></div>
+            <div class="text-lg font-normal">{{username}}</div>
+         </div>
+      </div>
+   </div>
+
+   <div class="flex flex-col w-full gap-5 mt-10 px-10">
+      <img src="{% static 'event.jpg' %}" alt="Imagem do produto" class="w-full h-96 object-cover object-center">
+      <h1 class="w-full  text-neutral-700 text-4xl font-semibold">Meu evento
+      </h1>
+      <div class="text-xl">
+         <p>No dia 24 de maio, garantimos para você, amigos e família, uma noite inesquecível com nosso querido Pedro
+            Sampaio. Tenho certeza de que você não vai ficar parado! Com suas músicas de tirar o pé do chão, ele vai
+            animar Campinas e região, na Praça Arautos da Paz no Taquaral.</p>
+         <p>E o melhor de tudo: <strong>totalmente de graça</strong>! Isso mesmo! Não é um sonho! A Unieventos, em
+            parceria com a prefeitura de Campinas, proporcionará mais uma vez uma experiência inexplicável para você que
+            quer curtir seu sábado!</p>
+         <p>Não fique de fora, esperamos por você!</p>
+         <br>
+         <h2>Informações adicionais:</h2>
+         <p>Data: 24 de maio</p>
+         <p>Local: Praça Arautos da Paz, Taquaral, Campinas</p>
+         <p>Ingressos: Totalmente gratuito</p>
+      </div>
+   </div>
+
+
+</section>
+<footer class="bg-neutral-800 text-center text-white px-10 py-5">© 2023 UniEventos. Todos os
+   direitos reservados. Desenvolvido com Django pelos integrantes de Unimetrocamp Wyden.</footer>
+{% endblock %}

@@ -15,16 +15,26 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-import produtor.views as produtor_views 
+import produtor.views as produtor_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    
+
     # Produtor
     path('', produtor_views.home, name='home'),
     path('login/', produtor_views.login, name='login'),
+    path('login/post', produtor_views.loginPost, name='loginPost'),
     path('register/', produtor_views.register, name='register'),
+    path('register/post', produtor_views.registerPost, name='registerPost'),
+
 
     # Evento cadastro
-    path('evento/', produtor_views.eventos_cadastrar, name='evento_cadastrar'),
+    path('evento/cadatro', produtor_views.eventos_cadastrar,
+         name='evento_cadastrar'),
+    path('evento/cadatro/post', produtor_views.evento_cadastrar_post,
+         name='evento_cadastrar_post'),
+    path('evento/read/1', produtor_views.evento_read,
+         name='evento_read'),
+    path('eventos/', produtor_views.eventos_list, name='eventos'),
+
 ]
