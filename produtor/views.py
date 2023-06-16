@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import redirect
 from datetime import date, time
+import random
 from .models import Produtor, Eventos
 
 
@@ -48,9 +49,13 @@ def eventos_cadastrar(request):
     return render(request, 'evento_cadastrar.html', {})
 
 
+def eventos_editar(request):
+    ultimo_evento = Eventos.objects.latest('id')
+    return render(request, 'evento_editar.html', {'evento': ultimo_evento})
+
+
 @csrf_exempt
 def evento_cadastrar_post(request):
-
     evento = Eventos(
         nome='Meu Evento',
         tipo_evento='Conferência',
@@ -60,7 +65,7 @@ def evento_cadastrar_post(request):
         endereco='Rua Principal, 123',
         cidade='Minha Cidade',
         estado='Meu Estado',
-        qtd_ingresso='100',
+        qtd_ingresso=str(random.randint(1, 500)),
         valor_ingresso='50.00',
         taxa_univentos=False
     )
@@ -70,9 +75,17 @@ def evento_cadastrar_post(request):
 
 
 def eventos_list(request):
-    return render(request, 'meus_eventos.html', {'username': request.session['usuario'], 'eventos': Eventos.objects.all()})
+    username = request.session['usuario'] if request.session.get(
+        'usuario') is not None else False
+    return render(request, 'meus_eventos.html', {'username': username, 'eventos': Eventos.objects.all()})
 
 
 def evento_read(request):
     ultimo_evento = Eventos.objects.latest('id')
     return render(request, 'evento.html', {'evento': ultimo_evento})
+
+
+def evento_delete(request):
+    ultimo_evento = Eventos.objects.latest('id')
+    ultimo_evento.delete()
+    return redirect('eventos')

@@ -5,37 +5,53 @@
 <section class="px-10 py-5">
 
    <!-- header -->
-   <div class="flex flex-row justify-between px-10">
+   <div class="flex flex-row justify-between mb-10 px-10">
       <a href="{% url 'home' %}" class="text-4xl font-semibold text-neutral-500">Unieventos</a>
       <div class="flex flex-row gap-5 items-center">
-         <a href="{% url 'eventos' %}" class="text-lg">Meus eventos</a>
+         <a href="{% url 'eventos' %}" class="text-lg">Todos eventos</a>
+         {% if username %}
          <a href="{% url 'evento_cadastrar' %}" class="text-lg">Cadastrar evento</a>
+         {% endif %}
          <div class="flex flex-row gap-2 items-center">
             <div class="text-3xl"><i class="fa-solid fa-circle-user"></i></div>
-            <div class="text-lg font-normal">{{username}}</div>
+            <div class="text-lg font-normal">{% if username %}{{username}}{%else%}<span>Usuario</span>{% endif %}</div>
          </div>
       </div>
    </div>
 
    <!-- List eventos -->
-   <div class="flex flex-col w-full min-h-full gap-5 mt-10 px-10">
+   <div class="flex flex-col w-full min-h-full gap-5 px-10">
       <div class="flex flex-col mb-5">
-         <p class="font-medium text-2xl"><i class="fa-solid fa-ticket"></i> Meus eventos!</p>
+         <p class="font-medium text-2xl"><i class="fa-solid fa-ticket"></i> Todos os eventos!</p>
          <span class="text-neutral-500 text-lg">Aqui está a lista de todos os seus eventos.</span>
       </div>
-      <div class="flex flex-col gap-5">
+      <div class="grid grid-flow-row grid-cols-3 gap-5">
          {% if eventos %}
          {% for evento in eventos %}
          <!-- Evento -->
-         <div class="w-full bg-white shadow-lg rounded-lg overflow-hidden">
+         <div class=" bg-white shadow-lg rounded-lg overflow-hidden">
             <img src="{% static 'event.jpg' %}" alt="Imagem do produto" class="w-full h-56 object-cover object-center">
             <div class="p-4">
-               <h3 class="text-xl font-medium text-gray-800">{{evento.nome}}</h3>
+               <div class="flex flex-row justify-between items-center">
+                  <h3 class="text-xl font-medium text-gray-800">{{evento.nome}}</h3>
+                  <div class="text-xl"><i class="fa-solid fa-users"></i> {{evento.qtd_ingresso}}</div>
+               </div>
                <p class="text-gray-600 mt-2">Descrição do produto Lorem ipsum dolor sit amet, consectetur adipiscing
                   elit.</p>
+               {% if username %}
+               <a href="{% url 'evento_editar' %}"
+                  class="mt-4 inline-block bg-blue-500 text-white py-2 px-8 rounded ml-2 mb-5 hover:bg-blue-600 float-right">Editar</a>
+               <a href="{% url 'delete' %}"
+                  class="mt-4 inline-block bg-red-600 text-white py-2 px-8 rounded hover:bg-red-700 float-right">Deletar</a>
+
+               {% else %}
                <a href="{% url 'evento_read' %}"
-                  class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Ver
+                  class="mt-4 mb-5 ml-5 inline-block bg-blue-500 text-white py-2 px-8 rounded hover:bg-blue-600 float-right">Participar</a>
+               <a href="{% url 'evento_read' %}"
+                  class="mt-4 inline-block text-blue-500 float-right font-medium underline py-2 rounded">Ver
                   detalhes</a>
+
+               {% endif %}
             </div>
          </div>
          <!-- End evento -->
@@ -44,12 +60,7 @@
          <div
             class="flex flex-col justify-center gap-2 align-middle items-center rounded-lg  bg-neutral-800 text-white h-48">
             <div><i class="fa-solid fa-ticket text-7xl"></i></div>
-            <p class="text-2xl"> Você
-               ainda
-               não cadastrou nenhum evento
-               nenhum evento até
-               o
-               momento!</p>
+            <p class="text-2xl"> Não foi encontrado nenhum evento ainda!</p>
             <p class="text-lg">Para cadastrar um evento <a href="{% url 'evento_cadastrar' %}"
                   class="text-lg underline text-blue-500">clique aqui.</a></p>
          </div>

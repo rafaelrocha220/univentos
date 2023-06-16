@@ -31,10 +31,14 @@ urlpatterns = [
     # Evento cadastro
     path('evento/cadatro', produtor_views.eventos_cadastrar,
          name='evento_cadastrar'),
+    path('evento/editar', produtor_views.eventos_editar,
+         name='evento_editar'),
     path('evento/cadatro/post', produtor_views.evento_cadastrar_post,
          name='evento_cadastrar_post'),
     path('evento/read/1', produtor_views.evento_read,
          name='evento_read'),
     path('eventos/', produtor_views.eventos_list, name='eventos'),
+    path('evento/delete/',
+         produtor_views.evento_delete, name="delete")
 
 ]
